@@ -1,5 +1,7 @@
 <?php
 
+namespace Model;
+
 include_once '.env.php';
 
 class LDAP_Conn

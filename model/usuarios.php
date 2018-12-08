@@ -1,5 +1,8 @@
 <?php
-include_once 'conexao.class.php';
+namespace Model;
+
+// include_once 'conexao.class.php';
+use Model\Conexao;
 
 class Usuarios extends Conexao
 {

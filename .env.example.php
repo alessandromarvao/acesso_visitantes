@@ -14,4 +14,4 @@ define('LDAP_SERVER', '');
 //Armazena na constante LDAP_DOMAIN o domínio local
 define('LDAP_DOMAIN', '');
 //Armazena na constante LDAP_PORT a porta de conexão com o servidor LDAP
-define('LDAP_PORT', '');
+define('LDAP_PORT', '389');

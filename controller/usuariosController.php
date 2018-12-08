@@ -1,21 +1,18 @@
 <?php
-include_once '../model/usuarios.class.php';
-include_once '../model/ldap_conn.class.php';
+
+namespace Controller;
+
+Use Model\Usuarios;
+Use Model\LDAP_Conn;
 
 class UsuariosController
 {
-    private $usuarios;
-    private $ldap_conn;
-
-    function __contruct()
+    public static function check($matricula)
     {
-        $this->usuarios = new Usuarios();
-        $this->ldap_conn = new LDAP_Conn();
-    }
+        $usuarios = new Usuarios();
+        $ldap_conn = new LDAP_Conn();
 
-    public function check($matricula)
-    {
-        if($this->usuarios->check($matricula) && $this->ldap_conn->checkAccess($matricula, $senha))
+        if($usuarios->check($matricula) && $ldap_conn->checkAccess($matricula, $senha))
         {
             return TRUE;
         } else {
@@ -23,14 +20,10 @@ class UsuariosController
         }
     }
 
-    public function create()
-    {
-        return $this->usuarios->create($matricula, $privilegio);
-    }
+    public static function create($matricula, $privilegio)
+    {        
+        $usuarios = new Usuarios();
 
-    function __destroy()
-    {
-        $this->usuarios = null;
-        $this->ldap_conn = null;
+        return $usuarios->create($matricula, $privilegio);
     }
 }

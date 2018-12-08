@@ -1,5 +1,7 @@
 <?php
 
+namespace Model;
+
 include_once '.env.php';
 
 /**
@@ -25,7 +27,7 @@ class Conexao {
      */
     function __construct(){
         try {
-            $this->conn = new PDO('mysql:host=' . HST . ';dbname=' . BD, USR, PWD);
+            $this->conn = new \PDO('mysql:host=' . HST . ';dbname=' . BD, USR, PWD);
         } catch (Exception $ex) {
             print_r("Erro ao conectar com o Banco de Dados. " . $ex->getMessage());
         }
