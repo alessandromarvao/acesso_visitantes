@@ -15,3 +15,7 @@ define('LDAP_SERVER', '');
 define('LDAP_DOMAIN', '');
 //Armazena na constante LDAP_PORT a porta de conexão com o servidor LDAP
 define('LDAP_PORT', '389');
+//Armazena na constante USER o usuário administrador do Domínio
+define('LDAP_USER', '');
+//Armazena na constante USER a senha do usuário administrador do Domínio
+define('LDAP_PWD', '');

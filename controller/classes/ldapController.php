@@ -1,10 +1,10 @@
 <?php
 
-namespace Model;
+namespace Controller\Classes;
 
-include_once '.env.php';
+include_once '../../env.php';
 
-class LDAP_Conn
+class LDAPController
 {
     private $conn;
     private $ldapBind;
@@ -21,7 +21,7 @@ class LDAP_Conn
      * @return TRUE se confirmar credencial e FALSE se não.
      */
     public function checkAccess($usr, $pwd){
-        if(@ldap_bind($this->conn, $usr.LDAP_DOMAIN, $pwd)) {
+        if(@ldap_bind($this->conn, $usr."@".LDAP_DOMAIN, $pwd)) {
             return TRUE;
         } else {
             return FALSE;

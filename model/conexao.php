@@ -2,7 +2,7 @@
 
 namespace Model;
 
-include_once '.env.php';
+include_once '../../env.php';
 
 /**
  * Esta classe cria a conexão com o Banco de Dados usando o PDO, 
