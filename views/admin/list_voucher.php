@@ -14,19 +14,6 @@ use Controller\Classes\VouchersController;
                 </tr>
             </thead>
             <tbody>
-            <?php
-            // $vouchers = VouchersController::read();
-            // foreach($vouchers as $row){
-            //     echo "<tr>";
-            //         echo "<td>";
-            //             echo $row['id'];
-            //         echo "</td>";
-            //         echo "<td>";
-            //             echo $row['voucher'];
-            //         echo "</td>";
-            //     echo "</tr>";
-            // }
-            ?>
             </tbody> -->
         </table>
     </div>
@@ -38,13 +25,13 @@ use Controller\Classes\VouchersController;
 <script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 <script>
     $(document).ready( function () {
-        $('#Table').DataTable({
+        $('#table').DataTable({
             serverSide: true,
-            ajax: '',
+            ajax: '../../controller/vouchers/list.php',
             paging: true,
             columns:[
-                {title: '#'},
-                {title: 'Voucher'}
+                {title: 'id'},
+                {title: 'voucher'}
             ]
         });
     } );
