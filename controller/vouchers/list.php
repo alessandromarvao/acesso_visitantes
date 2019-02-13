@@ -2,10 +2,15 @@
 include_once "../../bootstrap.php";
 
 use Controller\Classes\VouchersController;
-header('Content-Type: application/json');
 
-$array = json_encode([
-    'data' => VouchersController::read() 
-]);
-    
-print_r($array);
+$data = [];
+
+// foreach(VouchersController::read() as $row){
+//     $data[] = $row;
+// }
+
+$data = VouchersController::read();
+
+$response = ['data' => $data];
+
+echo json_encode($response);

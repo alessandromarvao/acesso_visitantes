@@ -4,12 +4,12 @@ include_once "header.php";
 ?>
 
 <div class="container-fluid">
-    <h2>Adicionar usuário</h2>
+    <h3>Adicionar usuário</h3>
     <hr>
     <form action="../../controller/usuarios/create.php" method="post">
         <div class="form-group">
             <div class="col-md-4">
-                <label for="inputUser">Matricula:</label>
+                <label for="inputUser">Matricula ou CPF:</label>
                 <input type="text" name="user" id="inputUser" class="form-control" required>
                 <br>
                 <label for="selectAccess">Nível de acesso:</label>

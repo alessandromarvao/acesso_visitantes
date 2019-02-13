@@ -24,6 +24,7 @@ class LDAPController
         if(@ldap_bind($this->conn, $usr."@".LDAP_DOMAIN, $pwd)) {
             return TRUE;
         } else {
+            echo "Erro no login";
             return FALSE;
         }
     }

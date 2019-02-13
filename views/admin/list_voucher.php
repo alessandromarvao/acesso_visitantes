@@ -4,20 +4,39 @@ include_once "header.php";
 use Controller\Classes\VouchersController;
 ?>
 
-<div class="row">
-    <div class="col-md-4">
-        <table class="table table-stripped" id="table">
-            <!-- <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Voucher</th>
-                </tr>
-            </thead>
-            <tbody>
-            </tbody> -->
-        </table>
+<div class="page">
+    <div class="row">
+        <div class="col-md-2">
+            <h3>Vouchers</h3>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="row">
+        <div class="col-md-4">
+            <table class="table table-stripped" id="table">
+                <!-- <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Voucher</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody> -->
+            </table>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="row">
+        <div class="col-md-2">
+            <a href="/views/admin/index.php" class="btn btn-lg btn-warning" >Voltar</a>
+        </div>
     </div>
 </div>
+
 
 
 <script src="/js/jquery-3.3.1.min.js"></script>
@@ -26,12 +45,11 @@ use Controller\Classes\VouchersController;
 <script>
     $(document).ready( function () {
         $('#table').DataTable({
-            serverSide: true,
             ajax: '../../controller/vouchers/list.php',
             paging: true,
             columns:[
-                {title: 'id'},
-                {title: 'voucher'}
+                {data: 'id', title: '#'},
+                {data: 'voucher', title: 'Voucher'}
             ]
         });
     } );
