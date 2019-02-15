@@ -17,8 +17,9 @@ class Acessos extends Conexao
      * @return bool TRUE caso o cadastro ocorra com sucesso ou FALSE se ocorrer algum erro.
      */
     public function create($matricula, $voucher, $nome){
-        $dateTime = new \DateTime();
-        $date = $dateTime->format("Y-m-d H:i:s");
+        date_default_timezone_set('America/Recife');
+        
+        $date = date("Y-m-d H:i:s");
 
         $stmt = $this->conn->prepare('INSERT INTO acessos (matricula_usuarios, id_vouchers, nome, acessado_em) VALUES (?,?,?,?)');
         $stmt->bindParam(1, $matricula);

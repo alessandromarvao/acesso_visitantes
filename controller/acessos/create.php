@@ -1,6 +1,8 @@
 <?php
 include_once "../../bootstrap.php";
 
+date_default_timezone_set('America/Recife');
+
 use Controller\Classes\AcessosController;
 use Controller\Classes\LogsController;
 use Controller\Classes\SessionController;

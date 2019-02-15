@@ -7,7 +7,7 @@ class Logs extends Conexao
 {
     public function create($usuario, $data, $mensagem)
     {
-        $stmt = $this->conn->prepare('INSERT INTO logs (id_usuarios, data, msg) VALUES (?,?,?)');
+        $stmt = $this->conn->prepare('INSERT INTO logs (matricula_usuarios, data, msg) VALUES (?,?,?)');
         $stmt->bindParam(1, $usuario);
         $stmt->bindParam(2, $data);
         $stmt->bindParam(3, $mensagem);
@@ -17,23 +17,10 @@ class Logs extends Conexao
 
     public function read($id=NULL)
     {
-        $query = 'SELECT id, id_usuarios, data, log FROM logs';
-
-        if(!empty($id)){
-            $query .= " WHERE id=?";
-        }
-        
-        $query .= " ORDER BY data DESC";
-        
+        $query = 'SELECT a.id, a.matricula_usuarios, DATE_FORMAT(a.data, '. "'%d/%m/%Y %H:%i:%s'" . ') as data, a.msg, b.p_nome FROM logs a LEFT JOIN usuarios b ON a.matricula_usuarios=b.matricula ORDER BY data DESC';        
         $stmt = $this->conn->prepare($query);
-        $stmt->bindParam(1, $id);
         $stmt->execute();
         
-        if(!empty($id))
-        {
-            return $stmt->fetch(\PDO::FETCH_ASSOC);
-        } else {
-            return $stmt->fetchAll(\PDO::FETCH_ASSOC);
-        }
+        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
 }

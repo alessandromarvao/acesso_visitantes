@@ -17,9 +17,9 @@ SessionController::init();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Acesso à Rede Visitante</title>
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//cdn.datatables.net/1.10.19/css/dataTables.bootstrap.min.css">
     <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
 </head>
 <body>
 <nav class="navbar navbar-default navbar-static-top">
@@ -51,7 +51,7 @@ SessionController::init();
                         <li><a href="new_voucher.php">Adicionar Vouchers</a></li>
                     </ul>
                 </li>
-                <li><a href="#">Logs</a></li>
+                <li><a href="logs.php">Logs</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
