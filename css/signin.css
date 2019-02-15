@@ -1,7 +1,12 @@
 body {
     padding-top: 140px;
     padding-bottom: 40px;
-    background-color: #eee;
+    background-color: #eee;    
+    height: 100%;
+    background-image: url('../img/152088124660446092.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
   }
   
   .form-signin {

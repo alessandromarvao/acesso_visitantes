@@ -20,11 +20,11 @@ class UsuariosController
         }
     }
 
-    public static function create($user, $access)
+    public static function create($user, $access, $first_name, $last_name)
     {        
         $usuarios = new Usuarios();
 
-        if($usuarios->create($user, $access)){
+        if($usuarios->create($user, $access, $first_name, $last_name)){
             return TRUE;
         } else {
             return FALSE;

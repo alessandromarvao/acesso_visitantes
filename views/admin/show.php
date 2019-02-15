@@ -12,6 +12,7 @@ use Controller\Classes\UsuariosController;
                 <thead>
                     <tr>
                         <th>Matrícula</th>
+                        <th>Nome</th>
                         <th>Privilégio</th>
                     </tr>
                 </thead>
@@ -21,13 +22,16 @@ use Controller\Classes\UsuariosController;
                 foreach($usuarios as $row){
                     echo "<tr>";
                     echo "<td>";
-                    echo $row['matricula'];
+                        echo $row['matricula'];
                     echo "</td>";
                     echo "<td>";
-                    if($row['privilegio']){
-                        echo "Administrador";
-                    } else {
-                            echo "Usuário";
+                        echo $row['p_nome'];
+                    echo "</td>";
+                    echo "<td>";
+                        if($row['privilegio']==1){
+                            echo "Administrador";
+                        } else {
+                            echo "Recepcionista";
                         }
                         echo "</td>";
                     echo "</tr>";

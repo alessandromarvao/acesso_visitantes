@@ -37,6 +37,22 @@ class Vouchers extends Conexao
         return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
 
+    public function getFirst()
+    {
+        $stmt = $this->conn->prepare('SELECT id, voucher FROM vouchers WHERE utilizado=0 LIMIT 1');
+        $stmt->execute();
+
+        return $stmt->fetch(\PDO::FETCH_ASSOC);
+    }
+
+    public function utilizado($id)
+    {
+        $stmt = $this->conn->prepare('UPDATE vouchers SET utilizado=1 WHERE id=?');
+        $stmt->bindParam(1, $id);
+        
+        return $stmt->execute();
+    }
+
     // public function list_old()
     // {
     //     $stmt = $this->conn->prepare('SELECT id, voucher FROM vouchers WHERE utilizado=1');

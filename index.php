@@ -1,3 +1,11 @@
+<?php
+include_once "bootstrap.php";
+
+use Controller\Classes\SessionController;
+
+SessionController::init();
+
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -9,6 +17,12 @@
     <link rel="stylesheet" href="css/signin.css">
 </head>
 <body>
+<?php
+// if(SessionController::){
+?>
+<?php
+
+?>
 <div class="container-fluid">
     <form action="controller/Usuarios/login.php" method="post" class="form-signin">
     <h2 class="form-signin-heading">Acesso ao Sistema</h2>

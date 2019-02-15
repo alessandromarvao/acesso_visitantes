@@ -1,4 +1,31 @@
+body
+{
+    height: 100%;
+    background-color: #e6fff2;
+    background-image: url('../img/152088124660446092.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+}
 .page
 {
     padding-left: 15px;
+}
+.text-right
+{
+    text-align: right;
+    float: right;
+}
+.upper
+{
+    font-size: 80px;
+}
+.welcome-msg
+{
+    padding-top: 150px;
+    text-align: center;
+}
+.welcome-msg>h1
+{
+    font-size: 50px;
 }

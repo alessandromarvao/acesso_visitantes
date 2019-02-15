@@ -1,13 +1,10 @@
 <?php
 namespace Model;
 
-// include_once 'conexao.class.php';
 use Model\Conexao;
 
 class Usuarios extends Conexao
 {
-    // private $conexao;
-
     /**
      * Armazena um novo usuário no sistema
      * 
@@ -15,11 +12,13 @@ class Usuarios extends Conexao
      * @param $access Nível de acesso do usuário (1 - adm; 2 - padrão)
      * @return BOOLEAN TRUE se o cadastro ocorrer com sucesso ou FALSE se houver falha
      */
-    public function create($user, $access)
+    public function create($user, $access, $first_name, $last_name)
     {
-        $stmt = $this->conn->prepare('INSERT INTO usuarios (matricula,  privilegio) VALUES (?,?)');
+        $stmt = $this->conn->prepare('INSERT INTO usuarios (matricula,  privilegio, p_nome, u_nome) VALUES (?,?,?,?)');
         $stmt->bindParam(1, $user);
         $stmt->bindParam(2, $access);
+        $stmt->bindParam(3, $first_name);
+        $stmt->bindParam(4, $last_name);
 
         return $stmt->execute();
     }
@@ -32,12 +31,14 @@ class Usuarios extends Conexao
      */
     public function read($user = null)
     {
-        $query = 'SELECT matricula, privilegio FROM usuarios';
+        $query = 'SELECT matricula, privilegio, p_nome, u_nome FROM usuarios';
         
         if(!empty($user))
         {
             $query .= " WHERE matricula=?";
         }
+
+        $query .= " ORDER BY privilegio";
 
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(1, $user);

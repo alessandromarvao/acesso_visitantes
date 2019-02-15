@@ -1,6 +1,14 @@
 <?php
 include_once "../../bootstrap.php";
+
 use Controller\Classes\SessionController;
+
+SessionController::init();
+
+// if(!SessionController::checkAccess(1)){
+//     header('location: /');
+// }
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -46,7 +54,12 @@ use Controller\Classes\SessionController;
                 <li><a href="#">Logs</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">Logout</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Olá, <?php echo SessionController::get('nome'); ?>!&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li class="text-right"><a href="../../controller/logout.php">Sair</a></li>
+                    </ul>
+                </li>
             </ul>
         </div>
     </div>

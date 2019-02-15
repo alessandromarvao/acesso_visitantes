@@ -9,6 +9,8 @@ while (($line = fgetcsv($file)) !== FALSE) {
   foreach($line as $row){
     VouchersController::create($row);
   }
-  header('Location: /views/admin/index.php');
 }
+
 fclose($file);
+
+header('Location: /views/admin/list_voucher.php');

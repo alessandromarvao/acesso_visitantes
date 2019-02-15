@@ -19,6 +19,18 @@ class VouchersController
 
         return $voucher->read();
     }
+    
+    public static function getFirst(){
+        $voucher = new Vouchers();
+    
+        return $voucher->getFirst();
+    }
+
+    public static function utilizado($id){
+        $voucher = new Vouchers();
+
+        return $voucher->utilizado($id);
+    } 
 
     // public static function list_old()
     // {
