@@ -3,9 +3,9 @@ include_once "../../bootstrap.php";
 
 use Controller\Classes\SessionController;
 
-// if(!SessionController::checkAccess(2)){
-//     header('location: /');
-// }
+if(!SessionController::checkAccess(2)){
+    header('location: /');
+}
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -37,7 +37,7 @@ use Controller\Classes\SessionController;
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Olá, <?php echo SessionController::get('nome'); ?>!&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li class="text-right"><a href="#">Sair</a></li>
+                        <li class="text-right"><a href="/controller/logout.php">Sair</a></li>
                     </ul>
                 </li>
             </ul>

@@ -2,7 +2,7 @@
 include_once "header.php";
 ?>
 
-<div class="page">
+<div class="container-fluid">
     <div class="row">
         <div class="col-md-2">
             <h3>Vouchers</h3>
@@ -12,7 +12,7 @@ include_once "header.php";
     <hr>
 
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-7">
             <table class="table table-stripped" id="table"></table>
         </div>
     </div>

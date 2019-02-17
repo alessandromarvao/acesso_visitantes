@@ -5,6 +5,16 @@ use Controller\Classes\SessionController;
 
 SessionController::init();
 
+
+switch(SessionController::get('access')){
+    case 1:
+        header("Location:views/admin/index.php");
+        break;
+    case 2:
+        header("Location:views/user/index.php");
+        break;
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">

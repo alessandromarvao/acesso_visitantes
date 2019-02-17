@@ -36,7 +36,8 @@ class Acessos extends Conexao
      * @param $id ID do acesso
      * @return array 
      */
-    public function read($id=NULL){
+    public function read($id=NULL)
+    {
         $query = "SELECT id, matricula_usuarios, id_vouchers, nome, contato, acessado_em FROM acessos";
 
         if(!empty($id)){
@@ -54,5 +55,25 @@ class Acessos extends Conexao
         } else {
             return $stmt->fechtAll(\PDO::FETCH_ASSOC);
         }
+    }
+
+    public function getAcessosByTime($time1, $time2)
+    {
+        $stmt = $this->conn->prepare("SELECT COUNT(id) FROM acessos WHERE acessado_em BETWEEN ? AND ?");
+        $stmt->bindParam(1, $time1);
+        $stmt->bindParam(2, $time2);
+        $stmt->execute();
+
+        return $stmt->fetch(\PDO::FETCH_ASSOC)['COUNT(id)'];
+    }
+    
+    public function getAcessosByDate($date)
+    {
+        $date = $date."%";
+        $stmt = $this->conn->prepare('SELECT COUNT(id) FROM acessos WHERE acessado_em LIKE ?');
+        $stmt->bindParam(1, $date);
+        $stmt->execute();
+        
+        return $stmt->fetch(\PDO::FETCH_ASSOC)['COUNT(id)'];
     }
 }

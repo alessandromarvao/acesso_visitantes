@@ -20,7 +20,7 @@ if(AcessosController::create($user, $voucher['id'], $_POST['input_nome'])){
 
     $date = date('Y-m-d H:i:s');
 
-    $msg = "Validou o acesso à rede wi-fi para " . $_POST['input_nome'] . " através do voucher " . $voucher['voucher'];
+    $msg = "Validou o acesso à rede wi-fi para <b>" . $_POST['input_nome'] . "</b> através do voucher <b>" . $voucher['voucher'] . "</b>";
 
     LogsController::create($user, $date, $msg);
     $array = [

@@ -4,7 +4,7 @@ include_once "header.php";
 use Controller\Classes\UsuariosController;
 ?>
 
-<div class="page">
+<div class="container-fluid">
     <h3>Usuários:</h3>
     <div class="row">
         <div class="col-md-4">

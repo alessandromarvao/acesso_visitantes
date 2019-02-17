@@ -38,10 +38,10 @@ include_once "header.php";
             paging: true,
             columns:[
                 {data: 'id', title: '#'},
+                {data: 'data', title: 'Data'},
                 {data: 'matricula_usuarios', title: 'Matrícula'},
                 {data: 'p_nome', title: 'Nome'},
-                {data: 'msg', title: 'Mensagem'},
-                {data: 'data', title: 'Data'},
+                {data: 'msg', title: 'Mensagem'}
             ]
         });
     } );

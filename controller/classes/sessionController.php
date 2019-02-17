@@ -30,8 +30,13 @@ class SessionController
 
     public static function get($param){
         self::init();
+
+        if(!empty($_SESSION[$param])) {
+            return $_SESSION[$param];
+        } else {
+            return NULL;
+        }
         
-        return $_SESSION[$param];
     }
 
     public static function checkLogin(){
