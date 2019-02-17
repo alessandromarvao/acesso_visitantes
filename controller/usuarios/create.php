@@ -17,7 +17,7 @@ if($_POST['user'] && $_POST['access']){
     }
 
     if(UsuariosController::create($_POST['user'], $_POST['access'], $_POST['p_nome'], $_POST['u_nome'])){ 
-        LogsController::create(SessionController::get('user'), date('Y-m-d H:i:s'), 'Adicionou novo usuário: <b>' . $_POST['p_nome'] . " (Matrícula/CPF: " . $_POST['user'] . ")</b> como $acesso"); 
+        LogsController::create(SessionController::get('user'), date('Y-m-d H:i:s'), 'Cadastrou o usuário: <b>' . $_POST['p_nome'] . " (Matrícula/CPF: " . $_POST['user'] . ")</b> como $acesso"); 
         header('Location: /views/admin/index.php');
     } else {
         header('Location: /views/admin/show.php');

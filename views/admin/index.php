@@ -6,6 +6,19 @@ include_once "../../bootstrap.php";
 use Controller\Classes\SessionController;
 use Controller\Classes\AcessosController;
 
+$turno;
+
+switch(true){
+    case date('H:i:s') <= '12:00:00':
+        $turno = "manhã";
+        break;
+    case date('H:i:s') <= '18:00:00':
+        $turno = "tarde";
+        break;
+    case date('H:i:s') <= '23:59:59':
+        $turno = "noite";
+        break;
+}
 
 
 ?>
@@ -15,7 +28,7 @@ use Controller\Classes\AcessosController;
     <div class="jumbotron">
         <div class="container">
             <h1><?php print_r(AcessosController::getAcessosByTime()); ?></h1>
-            <h3>Usuários conectados esta noite</h3>
+            <h3>Usuário(s) conectado(s) à rede Wi-Fi esta <?php echo $turno; ?></h3>
         </div>
     </div>
 </div>
@@ -23,7 +36,7 @@ use Controller\Classes\AcessosController;
     <div class="jumbotron">
         <div class="container">
             <h1><?php print_r(AcessosController::getAcessosByDate()); ?></h1>
-            <h3>Usuários conectados hoje</h3>
+            <h3>Usuário(s) conectado(s) à rede Wi-Fi hoje</h3>
         </div>
     </div>
 </div>
