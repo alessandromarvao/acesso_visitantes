@@ -1,7 +1,7 @@
 <?php
 include_once "header.php";
 
-use Controller\Classes\UsuariosController;
+use Model\Usuarios;
 ?>
 
 <div class="container-fluid">
@@ -18,7 +18,7 @@ use Controller\Classes\UsuariosController;
                 </thead>
                 <tbody>
                 <?php
-                $usuarios = UsuariosController::read();
+                $usuarios = Usuarios::read();
                 foreach($usuarios as $row){
                     echo "<tr>";
                     echo "<td>";

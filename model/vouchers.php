@@ -15,13 +15,23 @@ class Vouchers extends Conexao
      * @param $bool Confere se o voucher foi utilizado ou não
      * @return BOOLEAN TRUE se o cadastro ocorrer com sucesso ou FALSE se houver falha
      */
-    public function create($voucher, $bool)
+    public static function create($voucher, $bool)
     {
-        $stmt = $this->conn->prepare('INSERT INTO vouchers (voucher, utilizado) VALUE (?, ?)');
-        $stmt->bindParam(1, $voucher);
-        $stmt->bindParam(2, $bool);
+        $query = 'INSERT INTO vouchers (voucher, utilizado) VALUE (?, ?)';
+        $data = [
+            0 => [
+                '#' => 1,
+                'value' => $voucher
+            ],
+            1 => [
+                '#' => 2,
+                'value' => $bool
+            ]
+        ];
 
-        return $stmt->execute();
+        $conexao = new Conexao();
+
+        return $conexao->execute($query, $data);
     }
 
     /**
@@ -29,28 +39,37 @@ class Vouchers extends Conexao
      * 
      * @return array Dados do(s) usuário(s)
      */
-    public function read()
+    public static function read()
     {
-        $stmt = $this->conn->prepare('SELECT id, voucher FROM vouchers WHERE utilizado=0');
-        $stmt->execute();
-
-        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
-    }
-
-    public function getFirst()
-    {
-        $stmt = $this->conn->prepare('SELECT id, voucher FROM vouchers WHERE utilizado=0 LIMIT 1');
-        $stmt->execute();
-
-        return $stmt->fetch(\PDO::FETCH_ASSOC);
-    }
-
-    public function utilizado($id)
-    {
-        $stmt = $this->conn->prepare('UPDATE vouchers SET utilizado=1 WHERE id=?');
-        $stmt->bindParam(1, $id);
+        $query = 'SELECT id, voucher FROM vouchers WHERE utilizado=0';
         
-        return $stmt->execute();
+        $conexao = new Conexao();
+
+        return $conexao->select($query);
+    }
+    
+    public static function getFirst()
+    {
+        $query = 'SELECT id, voucher FROM vouchers WHERE utilizado=0 LIMIT 1';
+        
+        $conexao = new Conexao();
+    
+        return $conexao->select($query)[0];
+    }
+
+    public static function utilizado($id)
+    {
+        $query = 'UPDATE vouchers SET utilizado=1 WHERE id=?';
+        $data = [
+            0 => [
+                '#' => 1,
+                'value' => $id
+            ]
+        ];
+
+        $conexao = new Conexao();
+
+        return $conexao->select($query, $id);
     }
 
     // public function list_old()

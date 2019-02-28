@@ -1,12 +1,12 @@
 <?php
 include_once "../../bootstrap.php";
 
-use Controller\Classes\LogsController;
+use Model\Logs;
 
 
 $data = [];
 
-$data = LogsController::read();
+$data = Logs::read();
 
 $response = ['data' => $data];
 

@@ -1,11 +1,11 @@
 <?php
 include_once "../../bootstrap.php";
 
-use Controller\Classes\VouchersController;
+use Model\Vouchers;
 
 $data = [];
 
-$data = VouchersController::read();
+$data = Vouchers::read();
 
 $response = ['data' => $data];
 

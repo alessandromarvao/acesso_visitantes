@@ -1,13 +1,13 @@
 <?php
 include_once "../../bootstrap.php";
 
-use Controller\Classes\VouchersController;
+use Model\Vouchers;
 
 $file = fopen($_FILES['voucher']['tmp_name'], 'r');
 while (($line = fgetcsv($file)) !== FALSE) {
   //$line is an array of the csv elements
   foreach($line as $row){
-    VouchersController::create($row);
+    Vouchers::create($row);
   }
 }
 

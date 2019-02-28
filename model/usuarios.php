@@ -3,7 +3,8 @@ namespace Model;
 
 use Model\Conexao;
 
-class Usuarios extends Conexao
+// class Usuarios extends Conexao
+class Usuarios
 {
     /**
      * Armazena um novo usuário no sistema
@@ -12,15 +13,31 @@ class Usuarios extends Conexao
      * @param $access Nível de acesso do usuário (1 - adm; 2 - padrão)
      * @return BOOLEAN TRUE se o cadastro ocorrer com sucesso ou FALSE se houver falha
      */
-    public function create($user, $access, $first_name, $last_name)
+    public static function create($user, $access, $first_name, $last_name)
     {
-        $stmt = $this->conn->prepare('INSERT INTO usuarios (matricula,  privilegio, p_nome, u_nome) VALUES (?,?,?,?)');
-        $stmt->bindParam(1, $user);
-        $stmt->bindParam(2, $access);
-        $stmt->bindParam(3, $first_name);
-        $stmt->bindParam(4, $last_name);
+        $query = 'INSERT INTO usuarios (matricula,  privilegio, p_nome, u_nome) VALUES (?,?,?,?)';
+        $data = [
+            0 => [
+                '#' => 1,
+                'value' => $user
+            ],
+            1 => [
+                '#' => 2,
+                'value' => $access
+            ],
+            2 => [
+                '#' => 3,
+                'value' => $first_name
+            ],
+            3 => [
+                '#' => 4,
+                'value' => $last_name
+            ],
+        ];
 
-        return $stmt->execute();
+        $conexao = new Conexao();
+
+        return $conexao->execute($query, $data);
     }
 
     /**
@@ -29,7 +46,7 @@ class Usuarios extends Conexao
      * @param $user Matrícula do usuário
      * @return array Dados do(s) usuário(s)
      */
-    public function read($user = null)
+    public static function read($user = null)
     {
         $query = 'SELECT matricula, privilegio, p_nome, u_nome FROM usuarios';
         
@@ -38,18 +55,11 @@ class Usuarios extends Conexao
             $query .= " WHERE matricula=?";
         }
 
-        $query .= " ORDER BY privilegio";
+        $query .= " ORDER BY privilegio ASC, p_nome ASC";
 
-        $stmt = $this->conn->prepare($query);
-        $stmt->bindParam(1, $user);
-        $stmt->execute();
-        
-        if(!empty($user))
-        {            
-            return $stmt->fetch(\PDO::FETCH_ASSOC);
-        } else {
-            return $stmt->fetchAll(\PDO::FETCH_ASSOC);
-        }
+        $conexao = new Conexao();
+
+        return $conexao->select($query, $user);
     }
     
     public function update()
@@ -57,12 +67,12 @@ class Usuarios extends Conexao
         //
     }
     
-    public function check($usr)
+    public static function check($user)
     {
-        $stmt = $this->conn->prepare('SELECT COUNT(matricula) FROM usuarios WHERE matricula=?');
-        $stmt->bindParam(1, $usr);
-        $stmt->execute();
+        $query = 'SELECT COUNT(matricula) FROM usuarios WHERE matricula=?';
         
-        return $stmt->fetch(\PDO::FETCH_ASSOC)['COUNT(matricula)'];
+        $conexao = new Conexao();
+
+        return $conexao->select($query, $user);
     }
 }

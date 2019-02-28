@@ -3,24 +3,37 @@ namespace Model;
 
 use Model\Conexao;
 
-class Logs extends Conexao
+class Logs
 {
-    public function create($usuario, $data, $mensagem)
+    public static function create($usuario, $date, $mensagem)
     {
-        $stmt = $this->conn->prepare('INSERT INTO logs (matricula_usuarios, data, msg) VALUES (?,?,?)');
-        $stmt->bindParam(1, $usuario);
-        $stmt->bindParam(2, $data);
-        $stmt->bindParam(3, $mensagem);
+        $query = 'INSERT INTO logs (matricula_usuarios, data, msg) VALUES (?,?,?)';
+        $data = [
+            0 => [
+                '#' => 1,
+                'value' => $usuario
+            ],
+            1 => [
+                '#' => 2,
+                'value' => $date
+            ],
+            2 => [
+                '#' => 3,
+                'value' => $mensagem
+            ]
+        ];
 
-        return $stmt->execute();
+        $conexao = new Conexao();
+
+        return $conexao->execute($query, $data);
     }
 
-    public function read($id=NULL)
+    public static function read($id=NULL)
     {
         $query = 'SELECT a.id, a.matricula_usuarios, DATE_FORMAT(a.data, '. "'%d/%m/%Y %H:%i:%s'" . ') as data, a.msg, b.p_nome FROM logs a LEFT JOIN usuarios b ON a.matricula_usuarios=b.matricula ORDER BY data DESC';        
-        $stmt = $this->conn->prepare($query);
-        $stmt->execute();
         
-        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+        $conexao = new Conexao();
+
+        return $conexao->select($query);
     }
 }
