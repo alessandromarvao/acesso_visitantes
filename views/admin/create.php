@@ -19,10 +19,10 @@ include_once "header.php";
                 </select>
                 <br>
                 <label for="p_nome">Primeiro nome:</label>
-                <input type="text" name="p_nome" class="form-control" id="p_nome">
+                <input type="text" name="p_nome" class="form-control" id="p_nome" autocomplete="off">
                 <br>
                 <label for="u_nome">Sobrenome:</label>
-                <input type="text" name="u_nome" class="form-control" id="u_nome">
+                <input type="text" name="u_nome" class="form-control" id="u_nome" autocomplete="off">
                 <br>
                 <div class="row">
                     <div class="col-md-2">
