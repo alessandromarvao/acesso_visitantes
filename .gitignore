@@ -1,6 +1,9 @@
 /env.php
+
 lixo.php
+
 /vendor/
+
 vouchers_ifma_visitantes_roll3.csv
-ifma_barreirinhas.mwb
-ifma_barreirinhas.mwb.bak
+/model/ifma_barreirinhas.mwb
+/model/ifma_barreirinhas.mwb.bak
