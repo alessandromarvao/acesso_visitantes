@@ -4,7 +4,7 @@ namespace Controller\Classes;
 
 class SessionController
 {
-    public static function init(){        
+    public static function init(){
         if(session_id() == '') {
             session_start();
         }
