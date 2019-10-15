@@ -6,7 +6,7 @@ include_once "header.php";
 <div class="container-fluid">
     <h3>Adicionar usuário</h3>
     <hr>
-    <form action="../../controller/usuarios/create.php" method="post">
+    <form action="../../controller/Usuarios/create.php" method="post">
         <div class="form-group">
             <div class="col-md-4">
                 <label for="inputUser">Matricula ou CPF:</label>

@@ -24,9 +24,9 @@ if(isset($_POST['user']) && isset($_POST['pwd']))
         //Armazena na variável o caminho da página de acesso do usuário
         $page = "";
         if($privilegio==1){
-            $page = "Location: /views/admin/index.php";
+            $page = "Location: /acesso_visitantes/views/admin/index.php";
         } else {
-            $page = "Location: /views/user/index.php";
+            $page = "Location: /acesso_visitantes/views/user/index.php";
         }
         
         //Redireciona à página de acesso do usuário        

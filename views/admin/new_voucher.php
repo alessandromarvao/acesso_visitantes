@@ -17,7 +17,7 @@ include_once "header.php";
             <button type="submit" class="btn btn-lg btn-success" >Enviar</button>
         </div>
         <div class="col-md-2 col-md-offset-8">
-            <a href="/views/admin/index.php" class="btn btn-lg btn-warning">Voltar</a>
+            <a href="/acesso_visitantes/views/admin/index.php" class="btn btn-lg btn-warning">Voltar</a>
         </div>
     </div>
 </form>

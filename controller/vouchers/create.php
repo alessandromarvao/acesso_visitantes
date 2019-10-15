@@ -13,4 +13,4 @@ while (($line = fgetcsv($file)) !== FALSE) {
 
 fclose($file);
 
-header('Location: /views/admin/list_voucher.php');
+header('Location: /acesso_visitantes/views/admin/list_voucher.php');

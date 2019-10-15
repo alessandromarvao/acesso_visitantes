@@ -15,7 +15,7 @@ class Vouchers extends Conexao
      * @param $bool Confere se o voucher foi utilizado ou não
      * @return BOOLEAN TRUE se o cadastro ocorrer com sucesso ou FALSE se houver falha
      */
-    public static function create($voucher, $bool)
+    public static function create($voucher, $bool=0)
     {
         $query = 'INSERT INTO vouchers (voucher, utilizado) VALUE (?, ?)';
         $data = [
@@ -41,7 +41,7 @@ class Vouchers extends Conexao
      */
     public static function read()
     {
-        $query = 'SELECT id, voucher FROM vouchers WHERE utilizado=0';
+        $query = 'SELECT id, voucher FROM vouchers WHERE utilizado=0 ORDER BY id';
         
         $conexao = new Conexao();
 
@@ -50,7 +50,7 @@ class Vouchers extends Conexao
     
     public static function getFirst()
     {
-        $query = 'SELECT id, voucher FROM vouchers WHERE utilizado=0 LIMIT 1';
+        $query = 'SELECT id, voucher FROM vouchers WHERE utilizado=0 ORDER BY id LIMIT 1';
         
         $conexao = new Conexao();
     

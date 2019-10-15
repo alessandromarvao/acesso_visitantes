@@ -37,5 +37,5 @@ if($_POST['user'] && $_POST['access']){
         $conexao->rollback();
     }
     
-    header('Location: /views/admin/show.php');
+    header('Location: /acesso_visitantes/views/admin/show.php');
 }

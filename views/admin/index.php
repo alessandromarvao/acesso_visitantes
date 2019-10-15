@@ -1,6 +1,7 @@
 <?php
-include_once "header.php";
 include_once "../../bootstrap.php";
+
+include_once "header.php";
 
 date_default_timezone_set('America/Recife');
 

@@ -4,7 +4,7 @@ include_once "../../bootstrap.php";
 use Controller\Classes\SessionController;
 
 if(!SessionController::checkAccess(1)){
-    header('location: /');
+    header('location: /acesso_visitantes/');
 }
 ?>
 <!DOCTYPE html>
@@ -16,7 +16,7 @@ if(!SessionController::checkAccess(1)){
     <title>Acesso à Rede Visitante</title>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="//cdn.datatables.net/1.10.19/css/dataTables.bootstrap.min.css">
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/acesso_visitantes/css/style.css">
 </head>
 <body>
 <nav class="navbar navbar-default navbar-static-top">
@@ -54,7 +54,7 @@ if(!SessionController::checkAccess(1)){
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Olá, <?php echo SessionController::get('nome'); ?>!&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li class="text-right"><a href="/Controller/logout.php">Sair</a></li>
+                        <li class="text-right"><a href="/acesso_visitantes/controller/logout.php">Sair</a></li>
                     </ul>
                 </li>
             </ul>
