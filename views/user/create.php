@@ -35,7 +35,7 @@ use Controller\Classes\SessionController;
             {
                 method: "POST",
                 async: 'false',
-                url: "../../controller/acessos/create.php",
+                url: "../../controller/Acessos/create.php",
                 data: "user=" + $( "input[name='user']" ).val() + "&input_nome=" + $( "input[name='input_nome']" ).val(), 
                 dataType: "json",
                 success: function(result){

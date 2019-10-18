@@ -48,7 +48,7 @@ try {
 
     $conexao->commit();
 
-    echo json_encode($array);    
+    echo json_encode($array);
 } catch(Exception $e){
     $conexao->rollback();
 

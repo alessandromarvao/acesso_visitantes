@@ -27,6 +27,7 @@ switch(SessionController::get('access')){
     <link rel="stylesheet" href="css/signin.css">
 </head>
 <body>
+<!-- Sistema desenvolvido por Alessandro Marvão (SIAPE: 2244339) -->
 <?php
 // if(SessionController::){
 ?>

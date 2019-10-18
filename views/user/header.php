@@ -18,6 +18,7 @@ if(!SessionController::checkAccess(2)){
     <link rel="stylesheet" href="/acesso_visitantes/css/style.css">
 </head>
 <body>
+<!-- Sistema desenvolvido por Alessandro Marvão (SIAPE: 2244339) -->
 <nav class="navbar navbar-default navbar-static-top">
     <div class="container-fluid">
         <div class="navbar-header">
