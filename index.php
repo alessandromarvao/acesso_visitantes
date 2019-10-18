@@ -42,10 +42,14 @@ switch(SessionController::get('access')){
     <input type="text" name="user" id="inputuser" class="form-control" placeholder="Matrícula ou CPF" required autofocus autocomplete="off">
     <label for="inputPwd" class="sr-only">Senha</label>
     <input type="password" id="inputPwd" name="pwd" class="form-control" placeholder="Senha" required>
-    <br>
+    <br/>
+    <?php
+    if($_REQUEST['msg']) {
+	echo "<div class='alert alert-danger' role='alert'>Usuário ou senha incorreto</div>";
+    }
+    ?>
     <button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
     </form>
-
 </div>
 </body>
 </html>
